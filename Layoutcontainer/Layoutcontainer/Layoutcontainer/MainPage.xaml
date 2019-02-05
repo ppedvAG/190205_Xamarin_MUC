@@ -4,6 +4,30 @@
              xmlns:local="clr-namespace:Layoutcontainer"
              x:Class="Layoutcontainer.MainPage"
              BackgroundColor="DarkSlateGray">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="defaultSize" >30</x:Double>
+            
+            <!-- Expliziter Style -->
+            <Style TargetType="Button" x:Key="SpecialButtonStyle">
+               <Setter Property="BackgroundColor" Value="Khaki"/>
+               <Setter Property="TextColor" Value="DarkGoldenrod"/>
+               <Setter Property="BorderRadius" Value="10"/>
+            </Style>
+
+            <!-- Impliziter Style -->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="MediumPurple"/>
+                <Setter Property="TextColor" Value="DarkOrchid"/>
+                <Setter Property="BorderRadius" Value="50"/>
+                <Setter Property="FontAttributes" Value="Italic"/>
+            </Style>
+
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
     <!-- Horizontal/Vertical Options:
          Fill/Start/End: Container selbst
          FillAndExpand.../..AndExpand: Steuerelemente IM Container -->
@@ -81,19 +105,19 @@
                FontSize="50"
                Margin="0,20,0,0"/>
 
-        <Button Grid.Row="1" Grid.Column="0" Text="1" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
-        <Button Grid.Row="1" Grid.Column="1" Text="2" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
-        <Button Grid.Row="1" Grid.Column="2" Text="3" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
+        <Button Grid.Row="1" Grid.Column="0" Text="1" TextColor="Black" BackgroundColor="Orange" BorderRadius="30" FontSize="{StaticResource defaultSize}"/>
+        <Button Grid.Row="1" Grid.Column="1" Text="2" TextColor="Black" BackgroundColor="Orange" BorderRadius="30" FontSize="{StaticResource defaultSize}"/>
+        <Button Grid.Row="1" Grid.Column="2" Text="3" TextColor="Black" BackgroundColor="Orange" BorderRadius="30" FontSize="{StaticResource defaultSize}"/>
 
-        <Button Grid.Row="2" Grid.Column="0" Text="4" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
-        <Button Grid.Row="2" Grid.Column="1" Text="5" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
-        <Button Grid.Row="2" Grid.Column="2" Text="6" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
+        <Button Style="{StaticResource SpecialButtonStyle}" Grid.Row="2" Grid.Column="0" Text="4" />
+        <Button Style="{StaticResource SpecialButtonStyle}" Grid.Row="2" Grid.Column="1" Text="5" />
+        <Button Style="{StaticResource SpecialButtonStyle}" Grid.Row="2" Grid.Column="2" Text="6" />
 
-        <Button Grid.Row="3" Grid.Column="0" Text="7" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
-        <Button Grid.Row="3" Grid.Column="1" Text="8" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
-        <Button Grid.Row="3" Grid.Column="2" Text="9" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
+        <Button Grid.Row="3" Grid.Column="0" Text="7"/>
+        <Button Grid.Row="3" Grid.Column="1" Text="8"/>
+        <Button Grid.Row="3" Grid.Column="2" Text="9"/>
         
-        <Button Grid.Row="4" Grid.Column="1" Text="0" TextColor="Black" BackgroundColor="White" BorderRadius="30"/>
+        <Button Grid.Row="4" Grid.Column="1" Text="0" Clicked="Button_Clicked"/>
         <Button Grid.Row="5" Grid.ColumnSpan="3" Text="Dial" TextColor="Black" BackgroundColor="Lime" BorderRadius="30"/>
 
     </Grid>

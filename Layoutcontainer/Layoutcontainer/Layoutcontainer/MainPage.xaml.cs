@@ -13,5 +13,13 @@ namespace Layoutcontainer
         {
             InitializeComponent();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            // Button nullButton = (Button)sender
+            Button nullButton = sender as Button;
+
+            nullButton.Style = (Style)this.Resources["SpecialButtonStyle"];
+        }
     }
 }
