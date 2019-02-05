@@ -3,15 +3,77 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HalloForms"
              x:Class="HalloForms.MainPage">
-
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms! --- by michi " 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <!-- Beschriftungsfeld -->
+        <Label Text="Welcome to Xamarin.Forms! --- by michi "
+               TextColor="Red"
+               FontSize="20"
+               FontAttributes="Italic"
+               FontFamily="Arial"/>
 
+        <!-- Eingabefeld-->
         <Entry Placeholder="Username" x:Name="entryEingabe" />
+        <Entry Placeholder="Passwort" IsPassword="True" />
+        <Entry Placeholder="Irgendwas" Keyboard="Numeric"/>
+
+        <!-- Multiline-Eingabe -->
+        <Editor HeightRequest="100"/>
+
         <Button Text="Klick mich !" Clicked="Button_Clicked"/>
+
+        <!-- Quasi wie Rectangle in WPF - farbige Box-->
+        <BoxView BackgroundColor="HotPink" HeightRequest="10"/>
+
+        <ActivityIndicator IsRunning="True"/>
+
+        <!-- ComboBox -->
+        <Picker>
+            <Picker.Items>
+                <x:String>Apfel</x:String>
+                <x:String>Birne</x:String>
+                <x:String>Banane</x:String>
+            </Picker.Items>
+        </Picker>
+        <DatePicker/>
+        <TimePicker/>
+
+        <Switch IsToggled="True"/>
+        <Slider Minimum="0" Maximum="100" Value="20"/>
+        <ProgressBar Progress="0.3333"/>
+        <Stepper Minimum="0" Maximum="10" Increment="2"/>
     </StackLayout>
 
+
+    <TableView>
+        <TableRoot>
+
+            <TableSection Title="Einstellungen">
+                <TextCell Text="Meine Beschriftung"
+                          Detail="Untertitel"/>
+                <ImageCell ImageSource="http://www.zooroyal.de/magazin/wp-content/uploads/2017/04/hamster-760x560.jpg"
+                           Text="Max Mustermann"
+                           Detail="Online"/>
+            </TableSection>
+            <TableSection Title="Weitere Einstellungen">
+                <EntryCell Label="Username:" Placeholder="Max Mustermann"/>
+                <EntryCell Label="Passwort:" Placeholder="geheim"/>
+
+                <SwitchCell Text="Notifications:" On="True"/>
+
+                <!-- Eigene Zellen zusammenbauen -->
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Datum:"/>
+                        <DatePicker/>
+                    </StackLayout>
+                </ViewCell>
+                
+            </TableSection>
+
+        </TableRoot>
+    </TableView>
+    
+    
+    
+    
 </ContentPage>
