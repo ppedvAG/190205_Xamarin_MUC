@@ -9,6 +9,9 @@
         <Label Text="Welcome to Xamarin.Forms! --- by michi " 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+
+        <Entry Placeholder="Username" x:Name="entryEingabe" />
+        <Button Text="Klick mich !" Clicked="Button_Clicked"/>
     </StackLayout>
 
 </ContentPage>
