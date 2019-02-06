@@ -89,7 +89,7 @@
                  Grid.ColumnSpan="2/>
     </Grid>-->
 
-    <Grid RowSpacing="10" ColumnSpacing="10" Padding="40">
+    <!--<Grid RowSpacing="10" ColumnSpacing="10" Padding="40">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="1*"/>
@@ -120,6 +120,57 @@
         <Button Grid.Row="4" Grid.Column="1" Text="0" Clicked="Button_Clicked"/>
         <Button Grid.Row="5" Grid.ColumnSpan="3" Text="Dial" TextColor="Black" BackgroundColor="Lime" BorderRadius="30"/>
 
-    </Grid>
+    </Grid>-->
 
+    <!-- AbsoluteLayout.LayoutBounds="X,Y,Width,Height" -->
+    <!-- AbsoluteLayout.LayoutFlags="" -->
+    
+    <!--<AbsoluteLayout BackgroundColor="Yellow">
+        <BoxView BackgroundColor="Peru"
+                 AbsoluteLayout.LayoutBounds="0,0,1,0.333"
+                 AbsoluteLayout.LayoutFlags="SizeProportional"/>
+        <BoxView 
+            AbsoluteLayout.LayoutBounds="30,50,100,500"
+            BackgroundColor="MediumSlateBlue"/>
+        <BoxView 
+            AbsoluteLayout.LayoutBounds="100,100,100,100"
+            BackgroundColor="MediumOrchid"/>
+        <BoxView BackgroundColor="SteelBlue"
+                 AbsoluteLayout.LayoutBounds="0,1,1,0.667"
+                 AbsoluteLayout.LayoutFlags="All"/>
+    </AbsoluteLayout>-->
+
+    <RelativeLayout>
+        <BoxView x:Name="boxViewBanner"
+                 BackgroundColor="MediumSpringGreen"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression 
+                                Type=RelativeToParent,
+                                Property=Width,
+                                Factor=1}"
+                 RelativeLayout.HeightConstraint="{ConstraintExpression 
+                                Type=RelativeToParent,
+                                Property=Height,
+                                Factor=0.333}"/>
+
+        <BoxView BackgroundColor="Magenta"
+                 HeightRequest="100"
+                 WidthRequest="100"
+                 
+                 RelativeLayout.YConstraint="{ConstraintExpression
+                        Type=RelativeToView,
+                        ElementName=boxViewBanner,
+                        Property=Height,
+                        Factor=1,
+                        Constant=-50}"
+                 
+                 RelativeLayout.XConstraint="{ConstraintExpression
+                        Type=RelativeToView,
+                        ElementName=boxViewBanner,
+                        Property=Width,
+                        Factor=0.5,
+                        Constant=-50}"/>
+
+
+    </RelativeLayout>
+    
 </ContentPage>
