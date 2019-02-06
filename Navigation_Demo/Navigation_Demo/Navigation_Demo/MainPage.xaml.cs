@@ -12,6 +12,22 @@ namespace Navigation_Demo
         public MainPage()
         {
             InitializeComponent();
+
+            //if(Device.Idiom == TargetIdiom.Phone && Device.RuntimePlatform == Device.iOS)
+            //{
+            //    // ....
+            //}
+
+        }
+
+        private void ButtonModal_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Seite2());
+        }
+
+        private void ButtonNavigationPage_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Seite2());
         }
     }
 }
