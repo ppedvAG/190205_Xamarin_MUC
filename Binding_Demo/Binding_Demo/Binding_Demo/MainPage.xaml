@@ -3,12 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Binding_Demo"
              x:Class="Binding_Demo.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Farbkonverter x:Key="farbkonverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout VerticalOptions="Center">
+
+        <Slider x:Name="sliderWert" Minimum="0" Maximum="100"/>
+        <!-- ContentProperty: Standardeigenschaft bei einem Binding (hier Path) -->
+        <Label x:Name="labelWert"
+               Text="{Binding Source={x:Reference sliderWert},Path=Value}"
+               FontSize="{Binding Value, Source={x:Reference sliderWert}}"/>
+        <Label x:Name="labelMitBindingContext" BindingContext="{x:Reference sliderWert}"
+               Text="{Binding Path=Value}"
+               FontSize="{Binding Value}"/>
+        <BoxView BackgroundColor="Black" HeightRequest="2"/>
+
+        <Entry  x:Name="entryEingabe"/>
+        <Editor x:Name="entryBinding"
+                Text="{Binding Source={x:Reference entryEingabe},
+                               Path=Text,
+                               Mode=OneWay,
+                               StringFormat='Deine Eingabe ist: {0}'}"/>
+        
+        <BoxView BackgroundColor="Black" HeightRequest="2"/>
+
+        <Entry x:Name="entryFarbe" Text="Blue" />
+        <BoxView HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand"
+                 BackgroundColor="{Binding Source={x:Reference entryFarbe},
+                                           Path=Text,
+                                           Converter={StaticResource farbkonverter}}" />
+
     </StackLayout>
 
 </ContentPage>
