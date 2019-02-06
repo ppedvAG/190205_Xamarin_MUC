@@ -4,11 +4,21 @@
              xmlns:local="clr-namespace:Image_Demo"
              x:Class="Image_Demo.MainPage">
 
-    <StackLayout >
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout VerticalOptions="Center">
+        
+        <!-- Variante 1: Uri-->
+        <!-- Source="https://www.peta.de/mediadb/cache/990x655/2014-Zwerghamster-c-Julia-Bielecki-PETA-D-680px.jpg" -->
+
+        <!-- Variante 2: Nativ -->
+        <!-- Source="hamster.jpg" -->
+        
+        <!-- Variante 3: Bild im .NET Standard Projekt und eigene Markup-Extension -->
+        <!-- Source="{local:EmbeddedImage ID=Image_Demo.Images.hamster.jpg}" -->
+        <Image x:Name="imageBild" HeightRequest="200" WidthRequest="200"
+               HorizontalOptions="CenterAndExpand"
+               Aspect="AspectFill"
+               Source="{local:EmbeddedImage ID=Image_Demo.Images.hamster.jpg}"/>
+        
     </StackLayout>
 
 </ContentPage>
