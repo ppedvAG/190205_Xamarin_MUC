@@ -141,7 +141,7 @@
     </AbsoluteLayout>-->
 
     <RelativeLayout>
-        <BoxView x:Name="boxViewBanner"
+        <StackLayout x:Name="boxViewBanner"
                  BackgroundColor="MediumSpringGreen"
                  RelativeLayout.WidthConstraint="{ConstraintExpression 
                                 Type=RelativeToParent,
@@ -150,7 +150,16 @@
                  RelativeLayout.HeightConstraint="{ConstraintExpression 
                                 Type=RelativeToParent,
                                 Property=Height,
-                                Factor=0.333}"/>
+                                Factor=0.333}">
+            <Label
+                TextColor="Black">
+                <Label.Text>
+Lorem ipsum dolor sit amet,
+consectetuer adipiscing elit. 
+Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
+                </Label.Text>
+            </Label>
+        </StackLayout>
 
         <BoxView BackgroundColor="Magenta"
                  HeightRequest="100"
