@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MVVM_Simpel.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MVVM_Simpel
@@ -10,7 +11,6 @@ namespace MVVM_Simpel
         public App()
         {
             InitializeComponent();
-
             MainPage = new MainPage();
         }
 

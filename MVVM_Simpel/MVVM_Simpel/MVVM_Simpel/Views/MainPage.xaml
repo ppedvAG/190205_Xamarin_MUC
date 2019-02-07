@@ -2,13 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MVVM_Simpel"
-             x:Class="MVVM_Simpel.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+             xmlns:vm="clr-namespace:MVVM_Simpel.ViewModels"
+             x:Class="MVVM_Simpel.Views.MainPage">
+    <ContentPage.BindingContext>
+        <!-- Funktioniert nur, wenn es einen parameterlosen Konstruktor gibt -->
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    <StackLayout Padding="20">
+        
+        <Button Text="Personen laden" Command="{Binding GetPersonenCommand}"/>
+        
+        <ListView ItemsSource="{Binding Personenliste}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Vorname}" Detail="{Binding Kontostand}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
     </StackLayout>
 
 </ContentPage>
