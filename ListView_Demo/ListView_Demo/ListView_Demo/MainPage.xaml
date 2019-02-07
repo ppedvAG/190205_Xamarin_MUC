@@ -4,11 +4,35 @@
              xmlns:local="clr-namespace:ListView_Demo"
              x:Class="ListView_Demo.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout Padding="20">
+        <Button Text="Personen laden" Clicked="Button_Clicked"/>
+        <SearchBar x:Name="searchBarPerson" TextChanged="SearchBarPerson_TextChanged"/>
+        <ListView x:Name="listViewPersonen"
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="ListViewPersonen_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Vorname}" Detail="{Binding Kontostand}">
+                        <TextCell.ContextActions>
+                            <MenuItem x:Name="menuItemInfo"
+                                      Text="Info"
+                                      Clicked="MenuItemInfo_Clicked" />
+                            <MenuItem x:Name="menuItemDelete"
+                                      Text="Delete"
+                                      IsDestructive="True"
+                                      Clicked="MenuItemDelete_Clicked" />
+                        </TextCell.ContextActions>
+                    </TextCell>
+                    <!-- Eigenes Template -->
+                    <!--<ViewCell>
+                        <StackLayout>
+                            <BoxView BackgroundColor="Red"/>
+                        </StackLayout>
+                    </ViewCell>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
     </StackLayout>
 
 </ContentPage>
