@@ -4,11 +4,9 @@
              xmlns:local="clr-namespace:MessagingCenter_Demo"
              x:Class="MessagingCenter_Demo.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout VerticalOptions="Center">
+        <Label x:Name="labelWert" Text="---NICHTS---"/>
+        <Button x:Name="buttonSeite2" Text="Zur Seite 2" Clicked="ButtonSeite2_Clicked"/>
     </StackLayout>
 
 </ContentPage>
