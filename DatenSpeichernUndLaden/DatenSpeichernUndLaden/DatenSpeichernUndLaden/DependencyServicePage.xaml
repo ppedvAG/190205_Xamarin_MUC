@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:DatenSpeichernUndLaden"
-             x:Class="DatenSpeichernUndLaden.MainPage">
+             x:Class="DatenSpeichernUndLaden.DependencyServicePage">
 
     <StackLayout VerticalOptions="Center">
+        <BoxView BackgroundColor="LawnGreen"/>
         <Entry x:Name="entryEingabe"/>
         <Button x:Name="buttonSpeichern" Text="Speichern" Clicked="ButtonSpeichern_Clicked"/>
         <Button x:Name="buttonLaden" Text="Laden" Clicked="ButtonLaden_Clicked"/>
     </StackLayout>
-
+    
 </ContentPage>

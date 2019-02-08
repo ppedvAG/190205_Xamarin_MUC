@@ -11,7 +11,14 @@ namespace DatenSpeichernUndLaden
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            // MainPage = new MainPage();
+
+            MainPage = new TabbedPageRoot();
+
+            //Properties["Demo"] = 12345;
+            // Speichern erzwingen:
+            // Application.Current.SavePropertiesAsync();
+            //SavePropertiesAsync();
         }
 
         protected override void OnStart()
@@ -22,6 +29,7 @@ namespace DatenSpeichernUndLaden
         protected override void OnSleep()
         {
             // Handle when your app sleeps
+            // HIER werden die Application.Properties gespeichert !
         }
 
         protected override void OnResume()

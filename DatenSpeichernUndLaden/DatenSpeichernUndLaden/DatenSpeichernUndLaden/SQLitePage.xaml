@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DatenSpeichernUndLaden.SQLitePage">
+
+    <StackLayout>
+        
+        <Entry x:Name="entryVorname"/>
+        <Entry x:Name="entryNachname"/>
+        <Button x:Name="buttonSpeichern" Text="Speichern" Clicked="ButtonSpeichern_Clicked"/>
+        <Button x:Name="buttonLaden" Text="Laden" Clicked="ButtonLaden_Clicked">
+            <Button.IsVisible>
+                <OnPlatform UWP="True" Default="False"/>
+            </Button.IsVisible>
+        </Button>
+        <ListView x:Name="listViewPersonen"
+                  IsPullToRefreshEnabled="True"
+                  Refreshing="ListViewPersonen_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Vorname}" Detail="{Binding ID}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+
+</ContentPage>
