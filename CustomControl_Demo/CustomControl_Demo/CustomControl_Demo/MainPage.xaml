@@ -4,11 +4,17 @@
              xmlns:local="clr-namespace:CustomControl_Demo"
              x:Class="CustomControl_Demo.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout VerticalOptions="Center">
+        <local:EmailEntry Text="abcde" />
+
+        <Entry Placeholder="Gib nur Zahlen ein !">
+            <Entry.Behaviors>
+                <local:ZahlenBehaviour IsValid="{Binding Source={x:Reference labelValidierung}, Path=IsVisible,Mode=OneWayToSource}"/>
+            </Entry.Behaviors>
+        </Entry>
+
+        <Label x:Name="labelValidierung" Text="Es sind Zahlen drinnen !"/>
+        <local:SpezialEntry Placeholder="mein spezielles Entry"/>
     </StackLayout>
 
 </ContentPage>
