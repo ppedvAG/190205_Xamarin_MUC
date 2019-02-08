@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +33,7 @@ namespace DatenSpeichernUndLaden.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            AppCenter.Start("da86ba16-d566-4a2d-ae86-b614eb695575", typeof(Analytics),typeof(Crashes));
         }
 
         /// <summary>
