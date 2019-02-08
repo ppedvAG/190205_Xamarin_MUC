@@ -7,5 +7,6 @@
     <local:MainPage Title="Xamarin.Essentials"/>
     <local:DependencyServicePage Title="DependencyService"/>
     <local:SQLitePage Title="SQLite"/>
+    <local:FehlerPage Title="Mach Fehler :)"/>
 
 </TabbedPage>
