@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,17 +25,22 @@ namespace DatenSpeichernUndLaden
         protected override void OnStart()
         {
             // Handle when your app starts
+            Analytics.TrackEvent("OnStart ausgeführt");
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
             // HIER werden die Application.Properties gespeichert !
+            Analytics.TrackEvent("OnSleep ausgeführt");
+
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
+            Analytics.TrackEvent("OnResume ausgeführt");
+
         }
     }
 }

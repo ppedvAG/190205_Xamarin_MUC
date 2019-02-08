@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace DatenSpeichernUndLaden
             if(string.IsNullOrWhiteSpace(entryEingabe.Text))
             {
                 DisplayAlert("Speichern", "Textfeld ist leer", "Ok");
+                Analytics.TrackEvent("User wollte mit leeren Textfeld speichern :(");
                 return;
             }
 
@@ -37,6 +39,7 @@ namespace DatenSpeichernUndLaden
         {
             string fullPath = Path.Combine(FileSystem.AppDataDirectory, "demo.txt");
             DisplayAlert("Laden", File.ReadAllText(fullPath), "Yay");
+            Analytics.TrackEvent("User sieht Daten :)");
         }
     }
 }
